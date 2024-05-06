@@ -1,3 +1,5 @@
+[![build&deploy](https://github.com/edsinclair/activerecord-questdb-patch/actions/workflows/ruby.yml/badge.svg)](https://github.com/edsinclair/activerecord-questdb-patch/actions/workflows/ruby.yml)
+
 # ActiveRecord QuestDB Patch
 
 Provides patches for [ActiveRecord::ConnectionAdapters::PostgreSQLAdapter](https://github.com/rails/rails/tree/main/activerecord/lib/active_record/connection_adapters)
