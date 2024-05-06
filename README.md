@@ -13,7 +13,7 @@ Tested wth:
 
     ActiveRecord 7.1.3
     QuestDB 7.4.2
-    Ruby 3.2.3
+    Ruby 3.2
 
 ## Installation
 
