@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
     "README.md"
   ]
   s.files    = `git ls-files`.split($/)
-  s.homepage = "https://github.com/edsinclair/activerecord-questdb-patch"
+  s.homepage = "https://github.com/befinvestments/activerecord-questdb-patch"
   s.licenses = ["MIT"]
 
   s.add_runtime_dependency 'activerecord', '>= 7', '< 7.2'

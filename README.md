@@ -1,4 +1,4 @@
-[![build&deploy](https://github.com/edsinclair/activerecord-questdb-patch/actions/workflows/ruby.yml/badge.svg)](https://github.com/edsinclair/activerecord-questdb-patch/actions/workflows/ruby.yml)
+[![build&deploy](https://github.com/befinvestments/activerecord-questdb-patch/actions/workflows/ruby.yml/badge.svg)](https://github.com/befinvestments/activerecord-questdb-patch/actions/workflows/ruby.yml)
 
 # ActiveRecord QuestDB Patch
 
@@ -19,7 +19,7 @@ Tested wth:
 
 Add it to your Gemfile:
 
-    gem "activerecord-questdb-patch", git: "https://github.com/edsinclair/activerecord-questdb-patch.git"
+    gem "activerecord-questdb-patch", git: "https://github.com/befinvestments/activerecord-questdb-patch.git"
 
 ## Configuration:
 
