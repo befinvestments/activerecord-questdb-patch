@@ -9,6 +9,12 @@ RSpec.describe QuestDbPatch do
   end
   let(:table_name) { "a_db_table" }
 
+  describe "#arel_visitor" do
+    it "returns the expected instance type" do
+      expect(connection.send(:arel_visitor)).to be_a(QuestDbPatch::Arel::Visitors::QuestDbSQL)
+    end
+  end
+
   describe "#column_definitions" do
     before do
       allow(connection).to receive(:query)
