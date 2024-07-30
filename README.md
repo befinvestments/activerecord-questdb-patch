@@ -41,6 +41,37 @@ which will cause the patches to be applied to that connection.
       pool:     <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 ```
 
+## Minimal support for QuestDb's SAMPLE BY SQL extension vial Arel helpers
+
+Example usage:
+
+```
+    require "questdb_patch/arel/table"
+    # Base class for ActiveRecord models that connect to QuestDb
+    class QuestDbBase < ApplicationRecord
+      self.abstract_class = true
+
+      connects_to database: { writing: :questdb, reading: :questdb }
+
+      def self.arel_table
+        @arel_table ||= super.extend(QuestDbPatch::Arel::Table)
+      end
+    end
+```
+
+Then:
+
+```
+    MyClass < QuestDbBase; end
+
+    MyClass
+        .arel_table
+        .project(Arel.star)
+        .sample_by("10s")
+```
+
+`FILL`, `ALIGN TO`, and `FROM`, `TO` keywords are NOT currently supported.
+
 ## License
 
 See the LICENSE file for licensing information.
