@@ -9,7 +9,7 @@ module FakeRecord
     attr_reader :tables
     attr_accessor :visitor
 
-    def initialize
+    def initialize(visitor_klass: ::Arel::Visitors::PostgreSQL)
       @tables = %w{ users photos developers products}
       @columns = {
         "users" => [
@@ -31,7 +31,7 @@ module FakeRecord
         "users" => "id",
         "products" => "id"
       }
-      @visitor = QuestDbPatch::Arel::Visitors::QuestDbSQL.new(self)
+      @visitor = visitor_klass.new(self)
     end
 
     def columns_hash(table_name)
@@ -91,8 +91,8 @@ module FakeRecord
   end
 
   class ConnectionPool
-    def initialize
-      @connection = Connection.new
+    def initialize(visitor_klass: ::Arel::Visitors::PostgreSQL)
+      @connection = Connection.new(visitor_klass:)
     end
 
     def lease_connection
@@ -123,8 +123,8 @@ module FakeRecord
   class Base
     attr_accessor :connection_pool
 
-    def initialize
-      @connection_pool = ConnectionPool.new
+    def initialize(visitor_klass: ::Arel::Visitors::PostgreSQL)
+      @connection_pool = ConnectionPool.new(visitor_klass:)
     end
 
     def with_connection(...)

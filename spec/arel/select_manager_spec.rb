@@ -8,7 +8,9 @@ RSpec.describe QuestDbPatch::Arel::SelectManager do
 
   before do
     @arel_engine = Arel::Table.engine
-    Arel::Table.engine = FakeRecord::Base.new
+    Arel::Table.engine = FakeRecord::Base.new(
+      visitor_klass: QuestDbPatch::Arel::Visitors::QuestDbSQL
+    )
   end
 
   after do
