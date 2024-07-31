@@ -15,3 +15,11 @@ module QuestDbPatch
     end
   end
 end
+
+module Arel
+  module Nodes
+    class SelectCore
+      prepend QuestDbPatch::Arel::Nodes::SelectCore
+    end
+  end
+end
