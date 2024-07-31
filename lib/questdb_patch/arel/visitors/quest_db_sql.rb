@@ -8,7 +8,7 @@ module QuestDbPatch
 
         def visit_Arel_Nodes_SelectCore(o, collector)
           super
-          maybe_visit o.sample_by, collector
+          maybe_visit o.try(:sample_by), collector
         end
 
         def visit_Arel_Nodes_SampleBy(o, collector)
