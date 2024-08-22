@@ -12,7 +12,6 @@ require 'active_record'
 require 'active_record/version'
 $: << File.join(File.dirname(__FILE__), "..", "lib")
 
-
 module QuestDbPatch
   # Minimal Fake Connection class
   # Adapted from: https://github.com/rails/rails/blob/main/activerecord/test/cases/adapters/postgresql/postgresql_adapter_test.rb#L29-L54
@@ -36,6 +35,13 @@ module QuestDbPatch
     end
 
     def query(sql)
+    end
+
+    def reset
+      raise PG::ConnectionBad, "I'll be rescued by the reconnect method"
+    end
+
+    def close
     end
 
     def server_version

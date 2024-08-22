@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/befinvestments/activerecord-questdb-patch"
   s.licenses = ["MIT"]
 
-  s.add_runtime_dependency 'activerecord', '>= 7', '< 7.2'
+  s.add_runtime_dependency 'activerecord', '>= 7', '< 7.3'
   s.add_runtime_dependency 'pg'
   s.add_development_dependency 'rdoc'
   s.add_development_dependency 'rspec'
