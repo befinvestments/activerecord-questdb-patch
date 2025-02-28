@@ -11,8 +11,8 @@ Provided as is without any guarantees in the hope that it might be useful.
 
 Tested wth:
 
-    ActiveRecord 7.1.3
-    QuestDB 7.4.2
+    ActiveRecord 7.2, 8.0
+    QuestDB 7.4.2, 8.2
     Ruby 3.2
 
 ## Installation

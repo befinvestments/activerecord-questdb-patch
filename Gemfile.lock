@@ -1,34 +1,45 @@
+PATH
+  remote: .
+  specs:
+    activerecord-questdb-patch (0.0.5)
+      activerecord (>= 7, < 9)
+      pg
+
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (7.1.3.4)
-      activesupport (= 7.1.3.4)
-    activerecord (7.1.3.4)
-      activemodel (= 7.1.3.4)
-      activesupport (= 7.1.3.4)
+    activemodel (8.0.1)
+      activesupport (= 8.0.1)
+    activerecord (8.0.1)
+      activemodel (= 8.0.1)
+      activesupport (= 8.0.1)
       timeout (>= 0.4.0)
-    activesupport (7.1.3.4)
+    activesupport (8.0.1)
       base64
+      benchmark (>= 0.3)
       bigdecimal
-      concurrent-ruby (~> 1.0, >= 1.0.2)
+      concurrent-ruby (~> 1.0, >= 1.3.1)
       connection_pool (>= 2.2.5)
       drb
       i18n (>= 1.6, < 2)
+      logger (>= 1.4.2)
       minitest (>= 5.1)
-      mutex_m
-      tzinfo (~> 2.0)
+      securerandom (>= 0.3)
+      tzinfo (~> 2.0, >= 2.0.5)
+      uri (>= 0.13.1)
     base64 (0.2.0)
-    bigdecimal (3.1.8)
-    concurrent-ruby (1.3.3)
-    connection_pool (2.4.1)
+    benchmark (0.4.0)
+    bigdecimal (3.1.9)
+    concurrent-ruby (1.3.5)
+    connection_pool (2.5.0)
     diff-lcs (1.5.1)
     docile (1.4.0)
     drb (2.2.1)
-    i18n (1.14.5)
+    i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    minitest (5.24.1)
-    mutex_m (0.2.0)
-    pg (1.5.6)
+    logger (1.6.6)
+    minitest (5.25.4)
+    pg (1.5.9)
     psych (5.1.2)
       stringio
     rake (13.2.1)
@@ -47,6 +58,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-support (3.13.1)
+    securerandom (0.4.1)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -54,17 +66,17 @@ GEM
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
     stringio (3.1.0)
-    timeout (0.4.1)
+    timeout (0.4.3)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    uri (1.0.3)
 
 PLATFORMS
   arm64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
-  activerecord (>= 7)
-  pg
+  activerecord-questdb-patch!
   rake
   rdoc
   rspec (>= 3)

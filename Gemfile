@@ -1,7 +1,6 @@
 source "https://rubygems.org"
 
-gem 'activerecord', '>= 7'
-gem 'pg'
+gemspec
 
 group :development, :test do
   gem 'rspec', '>= 3'
