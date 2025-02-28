@@ -44,7 +44,7 @@ module QuestDbPatch
     def close
     end
 
-    def server_version
+    def server_version(connection = nil)
       15_00_00
     end
   end
