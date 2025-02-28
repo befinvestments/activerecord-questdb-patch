@@ -7,11 +7,6 @@ RSpec.describe QuestDbPatch::Arel::Table do
       .new(:users)
       .extend(QuestDbPatch::Arel::Table)
   end
-  let(:projection) do
-    table
-      .project(Arel.star)
-      .sample_by("10s")
-  end
 
   before do
     @arel_engine = Arel::Table.engine
@@ -24,7 +19,31 @@ RSpec.describe QuestDbPatch::Arel::Table do
     Arel::Table.engine = @arel_engine if defined? @arel_engine
   end
 
-  it "returns the expected SQL" do
-    expect(projection.to_sql).to eq(%(SELECT * FROM "users" SAMPLE BY 10s))
+  describe ".sample_by" do
+    let(:projection) do
+      table
+        .project(Arel.star)
+        .sample_by("10s")
+    end
+
+    it "returns the expected SQL" do
+      expect(projection.to_sql).to eq(%(SELECT * FROM "users" SAMPLE BY 10s))
+    end
+  end
+
+  describe ".fill" do
+    let(:projection) do
+      table
+        .project(Arel.star)
+        .sample_by(*parameters)
+    end
+
+    context "when passed a valid keyword" do
+      let(:parameters) { ["10s FILL(PREV)"] }
+
+      it "returns the expected SQL" do
+        expect(projection.to_sql).to eq(%(SELECT * FROM "users" SAMPLE BY 10s FILL(PREV)))
+      end
+    end
   end
 end
